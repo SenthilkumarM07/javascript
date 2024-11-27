@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <title id="tit">DocumentObjectModel</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th><label>NUMBER 1:</label></th>
+            <td><input  id="txtnum1" type="text" value=""></td>
+        </tr>
+        <tr>
+            <th>NUMBER 2:</th>
+            <td><input  id="txtnum2" type="text" value=""></td>
+        </tr>
+        <tr>
+            <td style="background-color: blue; color: white;"><center><label id="lblTotal">Total</label></center></td>
+            <th ><input id="btnAdd" type="submit" value="Add" onclick="add()"></th>
+        </tr>
+       <tr>
+        <td><hr></td>
+        <td><hr></td>
+       </tr>
+       <tr>
+        <th><label>Guess :</label></th>
+        <td><input id="txtrand" type="text" > </td>
+       </tr>
+       <tr>
+        <td style="background-color: red;color:white;"><label id="lblRight">Your Right / wrong</label></td>
+        <td><center><input id="btnGuess" type="button"  value="Guess" onclick="rand()"></center></td>
+       </tr>
+       <tr>
+        <td><hr></td>
+        <td><hr></td>
+       </tr>
+        <script>
+            //   let a = document.getElementById("1");   //dom 
+            // console.log(a);                       //printing a full element including tag
+            // console.log(a.textContent);           //printing only message inside the tag
+            // a.textContent = "Welcome"               //changing message inside the tag
+            // console.log(document.getElementById("tit").textContent);
+            //  function change() {
+            //      a.textContent = "Welcome to JS";
+            // } 
+            //  -----------adding two numbers using text box 
+            let num1=document.getElementById("txtnum1");
+            let num2=document.getElementById("txtnum2");
+            let add1=document.getElementById("lblTotal");
+            function add()
+            {
+                let txt1=Number(num1.value);
+                let txt2=Number(num2.value);
+                let total=txt1+txt2;
+                add1.textContent=total;
+            }
+            // ------------guess the random number 
+            let guess_number=document.getElementById("txtrand");
+            let row=document.getElementById("lblRight");
+            let random_number=Math.floor(Math.random()*10)+1;  //---
+            function rand() 
+            {
+                let entered_num=guess_number.value;
+                if(entered_num==random_number)
+                {
+                    console.log("Right");
+                    row.textContent="right";
+                }
+                else
+                {
+                    console.log("Wrong");
+                    row.textContent="wrong";
+                }
+            }
+        </script>
+    </table>
+</body>
+</html>
